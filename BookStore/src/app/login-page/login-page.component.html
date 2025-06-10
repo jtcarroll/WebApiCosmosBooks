@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+
+
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            @if(!this.authConfig?.account){
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false"
+                    (click)="login()">Login</button>
+            </li>
+            }
+            @else{
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false"
+                    (click)="logout()">Logout</button>
+            </li>
+            }
+        </ul>
+        <div class="col">
+            <h1>Welcome!</h1>
+        </div>
+    </div>
+    <div>
+
+        @if(this.authConfig?.account){
+        <div>
+            <div>
+                This is who is logged in: {{this.authConfig.account?.name}}
+            </div>
+        </div>
+
+        <div class="mt-2">
+            <button (click)="getAllBooks()" class="btn btn-primary" style="margin-right: 20px;">Get Books
+                Data</button>
+            <table style="width: 80%;">
+                <th>Id</th>
+                <th>Title</th>
+                <th>Pages</th>
+                <th>Authors</th>
+
+                @for (item of books; track item.id) {
+                <tr>
+                    <td>
+                        {{ item.id }}
+                    </td>
+                    <td>
+                        {{ item.title }}
+                    </td>
+                    <td>
+                        {{ item.nmPages }}
+                    </td>
+                    <td>
+                        {{ item.authors }}
+                    </td>
+                </tr>
+                }
+            </table>
+            @if(!books){
+            <br />There are no books, click get books data button.
+            }
+        </div>
+        }
+    </div>
+
+</div>

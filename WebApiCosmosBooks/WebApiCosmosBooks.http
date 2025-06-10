@@ -1,0 +1,6 @@
+@WebApiCosmosBooks_HostAddress = http://localhost:5109
+
+GET {{WebApiCosmosBooks_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
