@@ -11,7 +11,7 @@ namespace WebApiCosmosBooks.Data
         #region Configuration
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseCosmos(
-                "AccountEndpoint=https://datingappjc.documents.azure.com:443/;AccountKey=d5o5UBcHJ2klLIUhBXxP0YSJmIooZtqJTK7U1ap73gfRcJE6m2IhlJ3gVZr6o0EGudnb2FGOUbrCACDbywaV2A==;",
+                "",
                 databaseName: "Books");
         #endregion
 
